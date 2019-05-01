@@ -78,8 +78,10 @@ public class Book {
             for (int i = 0; i < quantity; i++) {
                 total+=this.getPrice();
             }
+            System.out.printf("$%,.2f for %d books.\n", total, quantity);
+        }else{
+            System.out.println("We apologize we are currently out of: "+ this.getTitle());
         }
-        System.out.printf("$%,.2f for %d books.\n", total, quantity);
     }
 
     public void setInStock(boolean inStock) {
