@@ -19,6 +19,10 @@ public class Book {
         this.isInStock=false;
     }
 
+    public Book(double price){
+        this.price = price;
+    }
+
     public Book(String title, String author, String description, double price, boolean isInStock){
         this.title = title;
         this.author = author;
@@ -65,13 +69,26 @@ public class Book {
         return str;
     }
 
+    public void requestBooks(int quantity){
+        double total=0;
+        //if the book is in stock
+        if(this.isInStock().equalsIgnoreCase("yes")) {
+            //calculate the total for the quantity of books specified
+            //depending on the price of the book
+            for (int i = 0; i < quantity; i++) {
+                total+=this.getPrice();
+            }
+        }
+        System.out.printf("$%,.2f for %d books.\n", total, quantity);
+    }
+
     public void setInStock(boolean inStock) {
         isInStock = inStock;
     }
 
     public void getDisplayText(){
         System.out.printf("Book Title: %s\nAuthor: %s\n" +
-                        "Description: %s\nPrice: %,.2f\nIn Stock: %s\n",
+                        "Description: %s\nPrice: %,.2f\nIn Stock: %s\n\n",
                         getTitle(),getAuthor(),getDescription(),getPrice(),isInStock());
     }
 }
