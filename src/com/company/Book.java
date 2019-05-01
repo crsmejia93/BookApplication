@@ -78,7 +78,7 @@ public class Book {
             for (int i = 0; i < quantity; i++) {
                 total+=this.getPrice();
             }
-            System.out.printf("$%,.2f for %d books.\n", total, quantity);
+            System.out.printf("For %d books the total is $%,.2f\n",quantity,total);
         }else{
             System.out.println("We apologize we are currently out of: "+ this.getTitle());
         }
@@ -90,7 +90,7 @@ public class Book {
 
     public void getDisplayText(){
         System.out.printf("Book Title: %s\nAuthor: %s\n" +
-                        "Description: %s\nPrice: %,.2f\nIn Stock: %s\n\n",
+                        "Description: %s\nPrice: %,.2f\nIn Stock: %s\n",
                         getTitle(),getAuthor(),getDescription(),getPrice(),isInStock());
     }
 }
